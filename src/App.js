@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+import Admin from "./Components/Backend/Admin/Admin";
+import AddCategory from "./Components/Backend/Category/AddCategory";
+import Category from "./Components/Backend/Category/Category";
+import EditCategory from "./Components/Backend/Category/EditCategory";
+import TopBar from "./Components/Backend/TopBar/TopBar";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <TopBar></TopBar>
+      <Switch>
+        <Route exact path="/">
+          <h1>Home Page</h1>
+        </Route>
+        <Route exact path="/admin">
+          <Admin />
+        </Route>
+        <Route exact path="/category">
+          <>
+            <Category />
+          </>
+        </Route>
+        <Route exact path="/category/add">
+          <AddCategory />
+        </Route>
+        <Route exact path="/category/edit/:id">
+          <EditCategory />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

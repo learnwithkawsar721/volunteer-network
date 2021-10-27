@@ -1,0 +1,7 @@
+.navbar-brand,
+.nav-link{
+    color: #000 !important;
+}
+.navbar-toggler:focus{
+    box-shadow: none !important;
+}
